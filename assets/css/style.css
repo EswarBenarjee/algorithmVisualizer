@@ -1,0 +1,92 @@
+:root {
+  --base-blue: #041880;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: var(--base-blue);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--base-blue);
+  text-align: center;
+}
+
+.algoText video {
+  width: 80%;
+}
+@media (max-width: 768px) {
+  .algoText video {
+    width: 100%;
+  }
+}
+
+.generatedDiv {
+  background-color: aqua;
+  margin: 0 2px;
+  padding: 0 10px;
+}
+
+.generatedDiv.correct {
+  background-color: greenyellow;
+}
+.generatedDiv.mid {
+  background-color: green;
+}
+.generatedDiv.low,
+.generatedDiv.high {
+  background-color: red;
+}
+
+#alert div {
+  width: fit-content;
+  border-radius: 2px;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+  text-align: center;
+}
+#alert .danger,
+.dangerAlert {
+  background-color: rgb(225, 106, 130);
+  color: red;
+  padding: 10px;
+}
+#alert .success,
+.dangerSuccess {
+  background-color: rgb(108, 217, 108);
+  color: green;
+  padding: 10px;
+}
+#alert .calm,
+.calmAlert {
+  background-color: var(--base-blue);
+  color: white;
+  padding: 10px;
+}
+
+input {
+  border: 2px solid #000;
+  padding: 5px;
+}
+
+.searchDiv {
+  width: fit-content;
+}

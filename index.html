@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithm Visualizer</title>
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <!-- Google Fonts CDN  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Sidebar CSS  -->
+    <link rel="stylesheet" href="assets/css/sidebar.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar  -->
+
+    <!-- Side bar -->
+    <div
+      class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column bg-light"
+      id="sidebar"
+    >
+      <ul class="nav flex-column text-white w-80">
+        <a href="index.html" class="nav-link h3 text-white my-2">
+          <img src="assets/img/logo.png" alt="" class="w-50 nav-logo" />
+        </a>
+        <li class="nav-link">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span class="mx-2">Searching</span>
+          <ul class="nav flex-column text-white w-100">
+            <li class="nav-link">
+              <a href="linearSearch.html">
+                <i class="fa-solid fa-timeline"></i>
+                <span class="mx-2">Linear Search</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="binarySearch.html">
+                <i class="fa-solid fa-divide"></i>
+                <span class="mx-2">Binary Search</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-link">
+          <i class="fa-solid fa-sort"></i>
+          <span class="mx-2">Sorting</span>
+          <ul class="nav flex-column text-white w-100">
+            <li class="nav-link">
+              <a href="bubbleSort.html">
+                <i class="fa-solid fa-table-columns"></i>
+                <span class="mx-2">Bubble Sort</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="insertionSort.html">
+                <i class="fa-brands fa-hive"></i>
+                <span class="mx-2">Insertion Sort</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr />
+
+      <ul class="nav flex-column text-white w-20">
+        <span class="nav-link d-flex justify-content-center h4 w-100 mb-5">
+          <a
+            href="https://leetcode.com/CodeBreaker231/"
+            target="_blank"
+            class="m-1 fs-3"
+            ><img src="assets/img/leetcode.png" alt=""
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/eswarbenarjeenaidu/"
+            class="m-1 fs-3"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a
+            href="https://github.com/EswarBenarjee?tab=repositories"
+            class="m-1 fs-3"
+            target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </span>
+      </ul>
+    </div>
+
+    <!-- Main Body -->
+
+    <!-- Main Wrapper -->
+    <div class="my-container active-cont">
+      <!-- Top Nav -->
+      <nav
+        class="navbar top-navbar navbar-light bg-light px-5 justify-content-md-end"
+      >
+        <a class="btn border-0 d-md-none" id="menu-btn"
+          ><i class="fas fa-bars"></i
+        ></a>
+        <div class="d-flex flex-direction-row">
+          <!-- Navbar elements -->
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="index.html?code=cpp">Cpp</a>
+          </li>
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="index.html?code=python">Python</a>
+          </li>
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="index.html?code=java">Java</a>
+          </li>
+        </div>
+      </nav>
+      <!--End Top Nav -->
+      <div class="row m-2">
+        <div class="algoText d-flex justify-content-center w-100">
+          <video autoplay loop muted>
+            <source src="./assets/img/video.mp4" />
+          </video>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <!-- Footer  -->
+  </body>
+
+  <!-- Bootstrap 5 CDN -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Sweet Alert 2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Font Awesome Kit  -->
+  <script
+    src="https://kit.fontawesome.com/f187a22733.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Sidebar  -->
+  <script src="assets//js/sidebar.js"></script>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (
+      urlParams.get("code") == "cpp" ||
+      urlParams.get("code") == "python" ||
+      urlParams.get("code") == "java"
+    ) {
+      // Alert to prompt user to select algorithm
+      Swal.fire(
+        "Select Algorithm",
+        "Please select an algorithm to view the code",
+        "info"
+      );
+    }
+  </script>
+</html>
