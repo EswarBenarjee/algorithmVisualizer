@@ -111,9 +111,7 @@
       <nav
         class="navbar top-navbar navbar-light bg-light px-5 justify-content-md-end"
       >
-        <a class="btn border-0 d-md-none" id="menu-btn"
-          ><i class="fas fa-bars"></i
-        ></a>
+        <a class="btn border-0" id="menu-btn"><i class="fas fa-bars"></i></a>
         <div class="d-flex flex-direction-row">
           <!-- Navbar elements -->
           <li class="nav-link m-2 fw-bold">
@@ -152,9 +150,34 @@
               </p>
             </div>
           </div>
+          <div class="row text-center">
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('random');">
+                Random <i class="fa-solid fa-shuffle"></i>
+              </div>
+            </div>
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('sorted');">
+                Sorted <i class="fa-solid fa-arrow-up-short-wide"></i>
+              </div>
+            </div>
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('nearlySorted');">
+                Nearly Sorted <i class="fa-solid fa-arrow-up-1-9"></i>
+              </div>
+            </div>
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('manyDuplicates');">
+                Many Duplicates <i class="fa-solid fa-copy"></i>
+              </div>
+            </div>
+          </div>
           <div class="row mt-3">
             <div class="col-md-4 p-2">
-              <button class="calmAlert w-100" onclick="create()">Create</button>
+              <button class="calmAlert w-100" onclick="create()">
+                Create &nbsp;&nbsp;&nbsp;
+                <i class="fa-solid fa-caret-up"></i>
+              </button>
             </div>
             <div class="col-md-4 p-2">
               <button class="calmAlert w-100" id="search" onclick="search()">

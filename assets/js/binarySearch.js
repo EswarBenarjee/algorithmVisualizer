@@ -1,7 +1,7 @@
 // If search is already triggered, disable search functionality
 let letMeSearch = true;
 
-let create = () => {
+let create = (type = "sorted") => {
   // Checking if search functionality is available or not
   if (!letMeSearch) return;
 
@@ -17,14 +17,6 @@ let create = () => {
       if (value == "" || value == "-") continue;
       nums.push(parseInt(value));
     }
-    if (!isSorted(nums)) {
-      alert.innerHTML =
-        "<div class='danger py-2 px-5'>Entered Array is not sorted</div>";
-      setTimeout(() => {
-        alert.innerHTML = "";
-      }, 1000);
-      return;
-    }
   }
 
   // Clear Binary Search Div before creating new divs
@@ -33,16 +25,42 @@ let create = () => {
   let number_of_divs = 0,
     lastElement = 1,
     max = 0,
-    min = 999999999999999;
+    min = 999999999999999,
+    presentElement = 0;
 
   if (nums.length == 0) {
     // Generate random Number of Divs
     number_of_divs = getRoundedInt(10, 25);
 
-    // Create Elements
+    // Create Elements according to type
     for (let i = 0; i < number_of_divs; i++) {
-      if (i > 0) lastElement = divs[divs.length - 1];
-      presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+      if (type == "random") {
+        presentElement = getRoundedInt();
+      } else if (type == "sorted") {
+        if (i > 0) lastElement = divs[divs.length - 1];
+        presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+      } else if (type == "nearlySorted") {
+        if (i > 0) lastElement = divs[divs.length - 1];
+        if (lastElement > 0)
+          presentElement = getRoundedInt(lastElement - 1, lastElement + 5);
+        else presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+      } else if (type == "manyDuplicates") {
+        // Duplicate Number Creation
+        if (i > 0) {
+          lastElement = divs[divs.length - 1];
+          if (getRoundedInt(0, 2) == 0) {
+            // Include a duplicate
+            presentElement = divs[divs.length - 1];
+          } else {
+            // Include new number
+            presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+          }
+        } else {
+          // Include new number
+          presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+        }
+      }
+
       divs.push(presentElement);
       console.log(presentElement);
       if (presentElement > max) max = presentElement;
@@ -102,6 +120,15 @@ customArray.addEventListener("keyup", () => {
 let search = () => {
   // Checking if search functionality is available or not
   if (!letMeSearch) return;
+
+  if (!isSorted(divs)) {
+    alert.innerHTML =
+      "<div class='danger py-2 px-5'>Entered Array is not sorted</div>";
+    setTimeout(() => {
+      alert.innerHTML = "";
+    }, 1000);
+    return;
+  }
 
   // Disable search functionality once triggered;
   letMeSearch = false;
