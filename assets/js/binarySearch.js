@@ -101,6 +101,10 @@ let create = (type = "sorted") => {
   highSpan.classList = "pointer";
   highSpan.id = "highSpan";
   binarySearchDiv.appendChild(highSpan);
+
+  // Random Search Element
+  let randomSearchElement = getRoundedInt(min, max);
+  searchElement.value = randomSearchElement;
 };
 
 let binarySearchDiv = document.getElementById("binarySearch");

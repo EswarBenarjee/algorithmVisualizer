@@ -1,0 +1,15 @@
+.bubbleSort {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.pointer {
+  background-color: green;
+  margin: 0 2px;
+  padding: 0 10px;
+  display: none;
+  position: absolute;
+  color: white;
+}

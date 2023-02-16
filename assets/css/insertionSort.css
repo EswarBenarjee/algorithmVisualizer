@@ -1,0 +1,23 @@
+.insertionSort {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.pointer {
+  background-color: green;
+  margin: 0 2px;
+  padding: 0 10px;
+  display: none;
+  position: absolute;
+  color: white;
+}
+
+.rightBorder {
+  border-right: 2px solid red;
+  display: none;
+  position: absolute;
+  height: 40%;
+  z-index: -1;
+}

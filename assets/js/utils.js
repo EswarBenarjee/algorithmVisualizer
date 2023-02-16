@@ -22,3 +22,23 @@ let replaceBody = () => {
   }
 };
 replaceBody();
+
+// Selecting the Code Block according to Query Parameter
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+if (
+  urlParams.get("code") == "cpp" ||
+  urlParams.get("code") == "python" ||
+  urlParams.get("code") == "java"
+) {
+  document.getElementById(urlParams.get("code")).click();
+} else if (urlParams.get("code") != null) {
+  // error code
+  Swal.fire(
+    "Error!",
+    "Please select a valid code block from the dropdown menu.",
+    "error"
+  );
+}

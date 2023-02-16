@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Sort Code</title>
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <!-- Google Fonts CDN  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Sidebar CSS  -->
+    <link rel="stylesheet" href="assets/css/sidebar.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar  -->
+
+    <!-- Side bar -->
+    <div
+      class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column bg-light"
+      id="sidebar"
+    >
+      <ul class="nav flex-column text-white w-80">
+        <a href="index.html" class="nav-link h3 text-white my-2">
+          <img src="assets/img/logo.png" alt="" class="w-50 nav-logo" />
+        </a>
+        <li class="nav-link">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span class="mx-2">Searching</span>
+          <ul class="nav flex-column text-white w-100">
+            <li class="nav-link">
+              <a href="linearSearch.html">
+                <i class="fa-solid fa-timeline"></i>
+                <span class="mx-2">Linear Search</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="binarySearch.html">
+                <i class="fa-solid fa-divide"></i>
+                <span class="mx-2">Binary Search</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-link">
+          <i class="fa-solid fa-sort"></i>
+          <span class="mx-2 parentMenuItem">Sorting</span>
+          <ul class="nav flex-column text-white w-100">
+            <li class="nav-link">
+              <a href="bubbleSort.html">
+                <i class="fa-solid fa-table-columns"></i>
+                <span class="mx-2 childMenuItem">Bubble Sort</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="insertionSort.html">
+                <i class="fa-brands fa-hive"></i>
+                <span class="mx-2">Insertion Sort</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr />
+
+      <ul class="nav flex-column text-white w-20">
+        <span class="nav-link d-flex justify-content-center h4 w-100 mb-5">
+          <a
+            href="https://leetcode.com/CodeBreaker231/"
+            target="_blank"
+            class="m-1 fs-3"
+            ><img src="assets/img/leetcode.png" alt=""
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/eswarbenarjeenaidu/"
+            class="m-1 fs-3"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a
+            href="https://github.com/EswarBenarjee?tab=repositories"
+            class="m-1 fs-3"
+            target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </span>
+      </ul>
+    </div>
+
+    <!-- Main Body -->
+
+    <!-- Main Wrapper -->
+    <div class="my-container active-cont">
+      <!-- Top Nav -->
+      <nav
+        class="navbar top-navbar navbar-light bg-light px-5 justify-content-md-end"
+      >
+        <a class="btn border-0 d-md-none" id="menu-btn"
+          ><i class="fas fa-bars"></i
+        ></a>
+        <div class="d-flex flex-direction-row">
+          <!-- Navbar elements -->
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="binarySearchCode.html">Cpp</a>
+          </li>
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="binarySearchCode.html?code=python"
+              >Python</a
+            >
+          </li>
+          <li class="nav-link m-2 fw-bold">
+            <a class="nav-link" href="binarySearchCode.html?code=java">Java</a>
+          </li>
+        </div>
+      </nav>
+      <!--End Top Nav -->
+      <div class="row m-2 p-5">
+        <h4>Bubble Sort Code</h4>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="cpp"
+              data-bs-toggle="tab"
+              data-bs-target="#home"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              C++
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="python"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              Python
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="java"
+              data-bs-toggle="tab"
+              data-bs-target="#contact"
+              type="button"
+              role="tab"
+              aria-controls="contact"
+              aria-selected="false"
+            >
+              Java
+            </button>
+          </li>
+        </ul>
+        <div
+          class="tab-content"
+          id="myTabContent"
+          style="border: 0.5px solid #eaedef"
+        >
+          <div
+            class="tab-pane fade show active p-2 pb-0 pt-4"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <pre class="brush: cpp">
+            // C++ program for implementation of Bubble sort
+            #include <bits/stdc++.h>
+            using namespace std;
+
+            // A function to implement bubble sort
+            void bubbleSort(int arr[], int n)
+            {
+                int i, j;
+                for (i = 0; i < n - 1; i++)
+
+                    // Last i elements are already
+                    // in place
+                    for (j = 0; j < n - i - 1; j++)
+                        if (arr[j] > arr[j + 1])
+                            swap(arr[j], arr[j + 1]);
+            }
+
+            // Function to print an array
+            void printArray(int arr[], int size)
+            {
+                int i;
+                for (i = 0; i < size; i++)
+                    cout << arr[i] << " ";
+                cout << endl;
+            }
+
+            // Driver code
+            int main()
+            {
+                int arr[] = { 5, 1, 4, 2, 8};
+                int N = sizeof(arr) / sizeof(arr[0]);
+                bubbleSort(arr, N);
+                cout << "Sorted array: \n";
+                printArray(arr, N);
+                return 0;
+            }
+            </pre>
+          </div>
+          <div
+            class="tab-pane fade p-2 pb-0 pt-4"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+            <pre class="brush: python">
+            # Python program for implementation of Bubble Sort
+
+            def bubbleSort(arr):
+                n = len(arr)
+
+                # Traverse through all array elements
+                for i in range(n):
+
+                    # Last i elements are already in place
+                    for j in range(0, n-i-1):
+
+                        # traverse the array from 0 to n-i-1
+                        # Swap if the element found is greater
+                        # than the next element
+                        if arr[j] > arr[j+1]:
+                            arr[j], arr[j+1] = arr[j+1], arr[j]
+
+
+            # Driver code to test above
+            if __name__ == "__main__":
+            arr = [5, 1, 4, 2, 8]
+
+            bubbleSort(arr)
+
+            print("Sorted array is:")
+            for i in range(len(arr)):
+                print("%d" % arr[i], end=" ")
+
+            </pre>
+          </div>
+          <div
+            class="tab-pane fade p-2 pb-0 pt-4"
+            id="contact"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+          >
+            <pre class="brush: java">
+            // Java program for implementation of Bubble Sort
+            import java.util.*;
+
+            class BubbleSort {
+                void bubbleSort(int arr[])
+                {
+                    int n = arr.length;
+                    for (int i = 0; i < n - 1; i++)
+                        for (int j = 0; j < n - i - 1; j++)
+                            if (arr[j] > arr[j + 1]) {
+                                // swap arr[j+1] and arr[j]
+                                int temp = arr[j];
+                                arr[j] = arr[j + 1];
+                                arr[j + 1] = temp;
+                            }
+                }
+
+                /* Prints the array */
+                void printArray(int arr[])
+                {
+                    int n = arr.length;
+                    for (int i = 0; i < n; ++i)
+                        System.out.print(arr[i] + " ");
+                    System.out.println();
+                }
+
+                // Driver method to test above
+                public static void main(String args[])
+                {
+                    BubbleSort ob = new BubbleSort();
+                    int arr[] = { 5, 1, 4, 2, 8 };
+                    ob.bubbleSort(arr);
+                    System.out.println("Sorted array");
+                    ob.printArray(arr);
+                }
+            }
+
+            </pre>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <!-- Footer  -->
+  </body>
+
+  <!-- Bootstrap 5 CDN -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Sweet Alert 2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Font Awesome Kit  -->
+  <script
+    src="https://kit.fontawesome.com/f187a22733.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Sidebar  -->
+  <script src="assets//js/sidebar.js"></script>
+  <script src="assets//js/utils.js"></script>
+</html>

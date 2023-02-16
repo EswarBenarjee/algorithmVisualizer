@@ -1,7 +1,7 @@
 // If search is already triggered, disable search functionality
 let letMeSearch = true;
 
-let create = () => {
+let create = (type = "random") => {
   // Checking if search functionality is available or not
   if (!letMeSearch) return;
 
@@ -19,35 +19,59 @@ let create = () => {
     }
   }
 
-  // Clear linear Search Div before creating new divs
+  // Clear Linear Search Div before creating new divs
   linearSearchDiv.innerHTML = "";
   divs = [];
-  let number_of_divs = 0;
+  let number_of_divs = 0,
+    lastElement = 1,
+    max = 0,
+    min = 999999999999999,
+    presentElement = 0;
 
   if (nums.length == 0) {
     // Generate random Number of Divs
     number_of_divs = getRoundedInt(10, 25);
 
-    // Create Elements
+    // Create Elements according to type
     for (let i = 0; i < number_of_divs; i++) {
-      presentElement = getRoundedInt(-100, 100);
+      if (type == "random") {
+        presentElement = getRoundedInt();
+      } else if (type == "sorted") {
+        if (i > 0) lastElement = divs[divs.length - 1];
+        presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+      } else if (type == "nearlySorted") {
+        if (i > 0) lastElement = divs[divs.length - 1];
+        if (lastElement > 0)
+          presentElement = getRoundedInt(lastElement - 1, lastElement + 5);
+        else presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+      } else if (type == "manyDuplicates") {
+        // Duplicate Number Creation
+        if (i > 0) {
+          lastElement = divs[divs.length - 1];
+          if (getRoundedInt(0, 2) == 0) {
+            // Include a duplicate
+            presentElement = divs[divs.length - 1];
+          } else {
+            // Include new number
+            presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+          }
+        } else {
+          // Include new number
+          presentElement = getRoundedInt(lastElement + 1, lastElement + 5);
+        }
+      }
+
       divs.push(presentElement);
+      console.log(presentElement);
+      if (presentElement > max) max = presentElement;
+      if (presentElement < min) min = presentElement;
     }
   } else {
     // Custom Entering of values
     number_of_divs = nums.length;
     divs = nums;
-  }
-
-  let max = Math.max(...divs);
-  let min = Math.min(...divs);
-
-  // Maintaining to update the height of divs
-  let heights = [];
-  for (let i = 0; i < number_of_divs; i++) {
-    heights.push(
-      ((divs[i] - min + 1) / (max - min)) * (linearSearchDiv.clientHeight - 50)
-    );
+    max = Math.max(...nums);
+    min = Math.min(...nums);
   }
 
   // Create Divs
@@ -55,17 +79,20 @@ let create = () => {
     let newDiv = document.createElement("div");
     newDiv.classList = "generatedDiv";
     newDiv.innerHTML = divs[i];
-    // Set the div height according to the value in it
-    newDiv.style.height = heights[i] + "px";
+    newDiv.style.height = (divs[i] * 100) / max + min + "%";
     linearSearchDiv.appendChild(newDiv);
   }
 
-  // Create present element Pointers
+  // Create Present Element Pointer
   let presentIndexSpan = document.createElement("div");
-  presentIndexSpan.innerHTML = "presentIndex";
+  presentIndexSpan.innerHTML = "present";
   presentIndexSpan.classList = "pointer";
   presentIndexSpan.id = "presentIndexSpan";
   linearSearchDiv.appendChild(presentIndexSpan);
+
+  // Random Search Element
+  let randomSearchElement = getRoundedInt(min, max);
+  searchElement.value = randomSearchElement;
 };
 
 let linearSearchDiv = document.getElementById("linearSearch");
@@ -74,6 +101,7 @@ let alert = document.getElementById("alert");
 let customArray = document.getElementById("customArray");
 let divs = [];
 create();
+console.log(divs);
 let divElements = linearSearchDiv.children;
 
 // Trigger Create whenever the custom array changes
@@ -88,19 +116,16 @@ let search = () => {
   // Disable search functionality once triggered;
   letMeSearch = false;
   let value = searchElement.value;
-  // Checking if the entered value is null or not
-  if (value.trim() == "") {
+  if (value.length == 0) {
     alert.innerHTML =
-      "<div class='danger py-2 px-5'>Please enter a value to search</div>";
+      "<div class='danger py-2 px-5'>Enter search element</div>";
     setTimeout(() => {
-      alert.innerHTML = "<div style='height:40px'></div>";
-    }, 2000);
-    letMeSearch = true;
+      alert.innerHTML = "";
+      letMeSearch = true;
+    }, 1000);
     return;
-  }
-  linearSearch(value, 0);
+  } else linearSearch(parseInt(value), 0, divs.length - 1);
 };
-
 document.addEventListener("keypress", (event) => {
   if (event.key == "Enter") {
     search();

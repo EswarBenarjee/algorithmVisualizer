@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Binary Search Visualization</title>
+    <title>Insertion Sort Visualization</title>
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
     <!-- Bootstrap 5 CDN -->
     <link
@@ -25,11 +25,9 @@
     <link rel="stylesheet" href="assets/css/sidebar.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/binarySearch.css" />
+    <link rel="stylesheet" href="assets/css/insertionSort.css" />
   </head>
   <body>
-    <!-- Navbar  -->
-
     <!-- Side bar -->
     <div
       class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column bg-light"
@@ -41,7 +39,7 @@
         </a>
         <li class="nav-link">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <span class="mx-2 parentMenuItem">Searching</span>
+          <span class="mx-2">Searching</span>
           <ul class="nav flex-column text-white w-100">
             <li class="nav-link">
               <a href="linearSearch.html">
@@ -52,14 +50,14 @@
             <li class="nav-link">
               <a href="binarySearch.html">
                 <i class="fa-solid fa-divide"></i>
-                <span class="mx-2 childMenuItem">Binary Search</span>
+                <span class="mx-2">Binary Search</span>
               </a>
             </li>
           </ul>
         </li>
         <li class="nav-link">
           <i class="fa-solid fa-sort"></i>
-          <span class="mx-2">Sorting</span>
+          <span class="mx-2 parentMenuItem">Sorting</span>
           <ul class="nav flex-column text-white w-100">
             <li class="nav-link">
               <a href="bubbleSort.html">
@@ -70,7 +68,7 @@
             <li class="nav-link">
               <a href="insertionSort.html">
                 <i class="fa-brands fa-hive"></i>
-                <span class="mx-2">Insertion Sort</span>
+                <span class="mx-2 childMenuItem">Insertion Sort</span>
               </a>
             </li>
           </ul>
@@ -111,44 +109,40 @@
       <nav
         class="navbar top-navbar navbar-light bg-light px-5 justify-content-md-end"
       >
-        <a class="btn border-0" id="menu-btn"><i class="fas fa-bars"></i></a>
+        <a class="btn border-0 d-md-none" id="menu-btn"
+          ><i class="fas fa-bars"></i
+        ></a>
         <div class="d-flex flex-direction-row">
           <!-- Navbar elements -->
           <li class="nav-link m-2 fw-bold">
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-link m-2 fw-bold">
-            <a class="nav-link" href="binarySearchCode.html">Cpp</a>
+            <a class="nav-link" href="insertionSortCode.html">Cpp</a>
           </li>
           <li class="nav-link m-2 fw-bold">
-            <a class="nav-link" href="binarySearchCode.html?code=python"
+            <a class="nav-link" href="insertionSortCode.html?code=python"
               >Python</a
             >
           </li>
           <li class="nav-link m-2 fw-bold">
-            <a class="nav-link" href="binarySearchCode.html?code=java">Java</a>
+            <a class="nav-link" href="insertionSortCode.html?code=java">Java</a>
           </li>
         </div>
       </nav>
       <!--End Top Nav -->
+      <!--End Top Nav -->
       <div class="row m-2 d-block">
         <div class="algoText p-5 w-100">
-          <h3 class="text-center mb-5">Binary Search</h3>
+          <h3 class="text-center mb-5">Insertion Sort</h3>
           <div id="alert"><div style="height: 40px"></div></div>
-          <div id="binarySearch" class="binarySearch mb-5"></div>
+          <div id="insertionSort" class="insertionSort mb-5"></div>
           <div class="row p-3">
-            <div class="col-md-8">
+            <div class="col-md-12">
               <p class="d-block m-auto mt-5 mb-4 searchDiv">
                 Enter Custom Array
                 <br />
                 <input type="text" id="customArray" />
-              </p>
-            </div>
-            <div class="col-md-4">
-              <p class="d-block m-auto mt-5 mb-4 searchDiv">
-                Enter Search Element
-                <br />
-                <input type="number" id="searchElement" min="0" value="0" />
               </p>
             </div>
           </div>
@@ -182,12 +176,12 @@
               </button>
             </div>
             <div class="col-md-4 p-2">
-              <button class="calmAlert w-100" id="search" onclick="search()">
-                Search
+              <button class="calmAlert w-100" id="sort" onclick="sort()">
+                Sort
               </button>
             </div>
             <div class="col-md-4 p-2">
-              <a href="binarySearchCode.html">
+              <a href="insertionSortCode.html">
                 <button class="calmAlert w-100">Code</button>
               </a>
             </div>
@@ -214,23 +208,6 @@
 
   <!-- Sidebar  -->
   <script src="assets//js/sidebar.js"></script>
-  <!-- Custom JS  -->
-  <script src="./assets/js/utils.js"></script>
-  <script src="assets/js/binarySearch.js"></script>
-  <script>
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    if (
-      urlParams.get("code") == "cpp" ||
-      urlParams.get("code") == "python" ||
-      urlParams.get("code") == "java"
-    ) {
-      // Alert to prompt user to select algorithm
-      Swal.fire(
-        "Select Algorithm",
-        "Please select an algorithm to view the code",
-        "info"
-      );
-    }
-  </script>
+  <script src="assets//js/utils.js"></script>
+  <script src="assets//js/insertionSort.js"></script>
 </html>

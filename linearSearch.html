@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Algorithm Visualizer</title>
+    <title>Linear Search Visualization</title>
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
     <!-- Bootstrap 5 CDN -->
     <link
@@ -111,22 +111,22 @@
       <nav
         class="navbar top-navbar navbar-light bg-light px-5 justify-content-md-end"
       >
-        <a class="btn border-0 d-md-none" id="menu-btn"
-          ><i class="fas fa-bars"></i
-        ></a>
+        <a class="btn border-0" id="menu-btn"><i class="fas fa-bars"></i></a>
         <div class="d-flex flex-direction-row">
           <!-- Navbar elements -->
           <li class="nav-link m-2 fw-bold">
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-link m-2 fw-bold">
-            <a class="nav-link" href="index.html">Cpp</a>
+            <a class="nav-link" href="linearSearchCode.html">Cpp</a>
           </li>
           <li class="nav-link m-2 fw-bold">
-            <a class="nav-link" href="index.html">Python</a>
+            <a class="nav-link" href="linearSearchCode.html?code=python"
+              >Python</a
+            >
           </li>
           <li class="nav-link m-2 fw-bold">
-            <a class="nav-link" href="index.html">Java</a>
+            <a class="nav-link" href="linearSearchCode.html?code=java">Java</a>
           </li>
         </div>
       </nav>
@@ -152,9 +152,34 @@
               </p>
             </div>
           </div>
+          <div class="row text-center">
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('random');">
+                Random <i class="fa-solid fa-shuffle"></i>
+              </div>
+            </div>
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('sorted');">
+                Sorted <i class="fa-solid fa-arrow-up-short-wide"></i>
+              </div>
+            </div>
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('nearlySorted');">
+                Nearly Sorted <i class="fa-solid fa-arrow-up-1-9"></i>
+              </div>
+            </div>
+            <div class="col-md-3 p-2">
+              <div class="calmAlert w-100" onclick="create('manyDuplicates');">
+                Many Duplicates <i class="fa-solid fa-copy"></i>
+              </div>
+            </div>
+          </div>
           <div class="row mt-3">
             <div class="col-md-4 p-2">
-              <button class="calmAlert w-100" onclick="create()">Create</button>
+              <button class="calmAlert w-100" onclick="create()">
+                Create &nbsp;&nbsp;&nbsp;
+                <i class="fa-solid fa-caret-up"></i>
+              </button>
             </div>
             <div class="col-md-4 p-2">
               <button class="calmAlert w-100" id="search" onclick="search()">
@@ -192,4 +217,20 @@
   <!-- Custom JS  -->
   <script src="./assets/js/utils.js"></script>
   <script src="assets/js/linearSearch.js"></script>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (
+      urlParams.get("code") == "cpp" ||
+      urlParams.get("code") == "python" ||
+      urlParams.get("code") == "java"
+    ) {
+      // Alert to prompt user to select algorithm
+      Swal.fire(
+        "Select Algorithm",
+        "Please select an algorithm to view the code",
+        "info"
+      );
+    }
+  </script>
 </html>

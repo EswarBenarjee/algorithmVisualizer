@@ -41,12 +41,16 @@ h6 {
   background-color: aqua;
   margin: 0 2px;
   padding: 0 10px;
+  transition: 0.5s;
 }
 
-.generatedDiv.correct {
+.generatedDiv.correct,
+.generatedDiv.sorted {
   background-color: greenyellow;
 }
-.generatedDiv.mid {
+.generatedDiv.mid,
+.generatedDiv.left,
+.generatedDiv.right {
   background-color: green;
 }
 .generatedDiv.low,
