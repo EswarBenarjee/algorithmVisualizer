@@ -173,12 +173,14 @@ let linearSearch = (target, presentIndex) => {
   divElements[presentIndex].classList.add("mid");
 
   // Setting positions of present Element
-  var rect = divElements[presentIndex].getBoundingClientRect();
-
-  let presentIndexTop = rect.bottom + 5;
+  let presentIndexTop =
+    divElements[presentIndex].offsetTop +
+    divElements[presentIndex].offsetHeight +
+    5;
+  presentIndexLeft = divElements[presentIndex].offsetLeft;
   presentIndexSpan.style =
     "display: inline; position: absolute; left:" +
-    rect.left +
+    presentIndexLeft +
     "px; top:" +
     presentIndexTop +
     "px;";

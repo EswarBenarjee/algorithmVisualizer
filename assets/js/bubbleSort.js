@@ -159,25 +159,23 @@ let bubbleSort = (left, right) => {
   divElements[right].classList.add("right");
 
   // Setting positions of left and right Elements
-  var rect = divElements[left].getBoundingClientRect();
-
-  leftTop = rect.bottom + 5;
+  leftTop = divElements[left].offsetTop + divElements[left].offsetHeight + 5;
+  leftLeft = divElements[left].offsetLeft;
 
   leftIndexSpan.style =
     "display: inline; position: absolute; left:" +
-    rect.left +
+    leftLeft +
     "px; top:" +
     leftTop +
     "px;";
 
-  var rect = divElements[right].getBoundingClientRect();
-
-  rightTop = rect.bottom + 5;
-  if (right == left + 1) rightTop += 20;
+  rightTop = divElements[right].offsetTop + divElements[right].offsetHeight + 5;
+  if (right == left + 1) rightTop += 25;
+  rightLeft = divElements[right].offsetLeft;
 
   rightIndexSpan.style =
     "display: inline; position: absolute; left:" +
-    rect.left +
+    rightLeft +
     "px; top:" +
     rightTop +
     "px;";

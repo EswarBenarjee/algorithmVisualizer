@@ -79,6 +79,11 @@
       <hr />
 
       <ul class="nav flex-column text-white w-20">
+        <span class="text-dark text-center w-100 mb-2">
+          With
+          <span class="text-danger">&#x2764;</span>
+          Eswar Benarjee
+        </span>
         <span class="nav-link d-flex justify-content-center h4 w-100 mb-5">
           <a
             href="https://leetcode.com/CodeBreaker231/"
@@ -100,6 +105,7 @@
           ></a>
         </span>
       </ul>
+      <div></div>
     </div>
 
     <!-- Main Body -->
@@ -136,10 +142,62 @@
             <source src="./assets/img/video.mp4" />
           </video>
         </div>
+        <div class="row m-4 p-2 justify-content-center align-items-center">
+          <div class="col-md-5 m-2 p-2">
+            <div class="card">
+              <img
+                src="./assets/img/search.png"
+                class="card-img-top"
+                alt="Searching"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  Searching <i class="fa-solid fa-magnifying-glass"></i>
+                </h5>
+                <p class="card-text">
+                  Searching is an Algorithm where we can find if an element is
+                  an list of elements or not. If the array is sorted, Binary
+                  Search is generally used due to its less time complexity.
+                  Otherwise, Linear Search is used.
+                </p>
+                <a href="linearSearch.html" class="btn btn-primary w-100"
+                  >Visit <i class="fa-solid fa-face-grin-beam"></i>
+                  <i class="fa-solid fa-face-grin-wide"></i>&nbsp;<i
+                    class="fa-solid fa-hand-point-right"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 m-2 p-2">
+            <div class="card">
+              <img
+                src="./assets/img/sort.png"
+                class="card-img-top"
+                alt="Sorting"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  Sorting <i class="fa-solid fa-sort"></i>
+                </h5>
+                <p class="card-text">
+                  Sorting is an Algorithm where the elements in an list can be
+                  arranged such that they are strictly inreasing or decreasing.
+                  Bubble Sort and Inserton Sort are one of the famous sorting
+                  techniques.
+                </p>
+                <a href="bubbleSort.html" class="btn btn-primary w-100"
+                  >Visit <i class="fa-solid fa-face-grin-beam"></i>
+                  <i class="fa-solid fa-face-grin-wide"></i>&nbsp;<i
+                    class="fa-solid fa-hand-point-right"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div></div>
     </div>
-    <!-- Footer  -->
   </body>
 
   <!-- Bootstrap 5 CDN -->
@@ -157,7 +215,8 @@
   ></script>
 
   <!-- Sidebar  -->
-  <script src="assets//js/sidebar.js"></script>
+  <script src="assets/js/sidebar.js"></script>
+  <script src="assets/js/utils.js"></script>
   <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

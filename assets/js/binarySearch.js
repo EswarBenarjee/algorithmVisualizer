@@ -183,37 +183,34 @@ let binarySearch = (target, low, high) => {
   divElements[high].classList.add("high");
 
   // Setting positions of low, mid and high Elements
-  var rect = divElements[low].getBoundingClientRect();
-
-  leftTop = rect.bottom + 5;
+  leftTop = divElements[low].offsetTop + divElements[low].offsetHeight + 5;
+  leftLeft = divElements[low].offsetLeft;
 
   lowSpan.style =
     "display: inline; position: absolute; left:" +
-    rect.left +
+    leftLeft +
     "px; top:" +
     leftTop +
     "px;";
 
-  var rect = divElements[mid].getBoundingClientRect();
-
-  midTop = rect.bottom + 5;
+  midTop = divElements[mid].offsetTop + divElements[mid].offsetHeight + 5;
   if (mid == low || mid == low + 1) midTop = leftTop + 25;
+  midLeft = divElements[mid].offsetLeft;
 
   midSpan.style =
     "display: inline; position: absolute; left:" +
-    rect.left +
+    midLeft +
     "px; top:" +
     midTop +
     "px;";
 
-  var rect = divElements[high].getBoundingClientRect();
-
-  highTop = rect.bottom + 5;
+  highTop = divElements[high].offsetTop + divElements[high].offsetHeight + 5;
   if (high == mid || high == mid + 1) highTop = midTop + 30;
+  highLeft = divElements[high].offsetLeft;
 
   highSpan.style =
     "display: inline; position: absolute; left:" +
-    rect.left +
+    highLeft +
     "px; top:" +
     highTop +
     "px;";

@@ -13,6 +13,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #fff;
   color: var(--base-blue);
+  overflow-x: hidden;
 }
 
 h1,
@@ -40,8 +41,10 @@ h6 {
 .generatedDiv {
   background-color: aqua;
   margin: 0 2px;
-  padding: 0 10px;
+  padding: 0 10px 10px;
   transition: 0.5s;
+  text-align: center;
+  width: 38.5px;
 }
 
 .generatedDiv.correct,
@@ -93,4 +96,33 @@ input {
 
 .searchDiv {
   width: fit-content;
+}
+
+.btn.btn-primary.w-100 i:nth-child(1) {
+  display: inline;
+}
+.btn.btn-primary.w-100 i:nth-child(2),
+.btn.btn-primary.w-100 i:nth-child(3) {
+  display: none;
+}
+.btn.btn-primary.w-100:hover i:nth-child(1) {
+  display: none;
+}
+.btn.btn-primary.w-100:hover i:nth-child(2),
+.btn.btn-primary.w-100:hover i:nth-child(3) {
+  display: inline;
+}
+
+a img {
+  width: 1.6rem;
+  position: relative;
+  bottom: 0.2rem;
+}
+
+#zombie-video {
+  position: absolute;
+  right: 0;
+  top: 8vh;
+  width: 15vw;
+  display: none;
 }

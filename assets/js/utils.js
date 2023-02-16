@@ -24,17 +24,16 @@ let replaceBody = () => {
 replaceBody();
 
 // Selecting the Code Block according to Query Parameter
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+const queryString1 = window.location.search;
+const urlParams1 = new URLSearchParams(queryString1);
 
 if (
-  urlParams.get("code") == "cpp" ||
-  urlParams.get("code") == "python" ||
-  urlParams.get("code") == "java"
+  urlParams1.get("code") == "cpp" ||
+  urlParams1.get("code") == "python" ||
+  urlParams1.get("code") == "java"
 ) {
-  document.getElementById(urlParams.get("code")).click();
-} else if (urlParams.get("code") != null) {
+  document.getElementById(urlParams1.get("code")).click();
+} else if (urlParams1.get("code") != null) {
   // error code
   Swal.fire(
     "Error!",
@@ -42,3 +41,30 @@ if (
     "error"
   );
 }
+
+// Generate zombie video on below screen randomly
+let zombieVideoDiv = document.createElement("video");
+zombieVideoDiv.id = "zombie-video";
+zombieVideoDiv.autoplay = true;
+zombieVideoDiv.loop = true;
+zombieVideoDiv.style.position = "absolute";
+document.body.appendChild(zombieVideoDiv);
+
+console.log("Zombie Video Loaded");
+
+let zombieVideo = () => {
+  let video = document.getElementById("zombie-video");
+  video.src = `assets/img/zombie_walk.mp4`;
+  Swal.fire({
+    title: "Zombie Alert!",
+    text: "Congrats, you've got a zombie in your code.",
+    icon: "warning",
+  }).then(() => {
+    zombieVideoDiv.style.display = "inline";
+    zombieVideoDiv.play();
+  });
+};
+
+let randomNum = getRoundedInt(1, 5);
+console.log(randomNum);
+if (randomNum == 1) zombieVideo();

@@ -240,7 +240,7 @@ let insertionSort = async (left) => {
     }
 
     // Exchanging left and right elements
-    if (left == right) {
+    if (left + 1 == right) {
       // Setting positions of left Elements
       leftTop =
         divElements[left + 1].offsetHeight +
