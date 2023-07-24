@@ -42,29 +42,39 @@ if (
   );
 }
 
-// Generate zombie video on below screen randomly
-let zombieVideoDiv = document.createElement("video");
-zombieVideoDiv.id = "zombie-video";
-zombieVideoDiv.autoplay = true;
-zombieVideoDiv.loop = true;
-zombieVideoDiv.style.position = "absolute";
-document.body.appendChild(zombieVideoDiv);
-
-console.log("Zombie Video Loaded");
-
-let zombieVideo = () => {
-  let video = document.getElementById("zombie-video");
-  video.src = `assets/img/zombie_walk.mp4`;
-  Swal.fire({
-    title: "Zombie Alert!",
-    text: "Congrats, you've got a zombie in your code.",
-    icon: "warning",
-  }).then(() => {
-    zombieVideoDiv.style.display = "inline";
-    zombieVideoDiv.play();
+// Share Project
+const share = () => {
+  console.log("Sharing content");
+  navigator.share({
+    title: "Algorithm Visualizer",
+    text: "An Algorithm Visualizer by Eswar Benarjee!",
+    url: "https://eswarbenarjee.in/algorithmVisualizer",
   });
 };
 
-let randomNum = getRoundedInt(1, 5);
-console.log(randomNum);
-if (randomNum == 1) zombieVideo();
+// Generate zombie video on below screen randomly
+// let zombieVideoDiv = document.createElement("video");
+// zombieVideoDiv.id = "zombie-video";
+// zombieVideoDiv.autoplay = true;
+// zombieVideoDiv.loop = true;
+// zombieVideoDiv.style.position = "absolute";
+// document.body.appendChild(zombieVideoDiv);
+
+// console.log("Zombie Video Loaded");
+
+// let zombieVideo = () => {
+//   let video = document.getElementById("zombie-video");
+//   video.src = `assets/img/zombie_walk.mp4`;
+//   Swal.fire({
+//     title: "Zombie Alert!",
+//     text: "Congrats, you've got a zombie in your code.",
+//     icon: "warning",
+//   }).then(() => {
+//     zombieVideoDiv.style.display = "inline";
+//     zombieVideoDiv.play();
+//   });
+// };
+
+// let randomNum = getRoundedInt(1, 5);
+// console.log(randomNum);
+// if (randomNum == 1) zombieVideo();
